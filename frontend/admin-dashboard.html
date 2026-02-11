@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - Vasan Plywoods</title>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="css/admin.css">
+    <link rel="stylesheet" href="css/style.css"> <!-- Include main styles for Navbar -->
+</head>
+
+<body>
+    <!-- Navbar from Main Site -->
+    <header class="header">
+        <nav class="navbar">
+            <div class="container">
+                <div class="nav-brand">
+                    <h1>VASAN GLASS & PLYWOOD WORKS</h1>
+                    <p class="tagline">Crafting Quality Since Years</p>
+                </div>
+                <ul class="nav-menu" id="navMenu">
+                    <li><a href="index.html" class="nav-link">Home</a></li>
+                    <li><a href="index.html#services" class="nav-link">Services</a></li>
+                    <li><a href="index.html#products" class="nav-link">Products</a></li>
+                    <li><a href="index.html#showcase" class="nav-link">Gallery</a></li>
+                    <li><a href="index.html#contact" class="nav-link">Contact</a></li>
+                    <li><a href="#" class="nav-link" style="color: #e67e22; font-weight: bold;">Admin</a></li>
+                </ul>
+                <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle navigation menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <div class="admin-wrapper">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h2>Admin Panel</h2>
+            </div>
+            <ul class="sidebar-menu">
+                <li><a href="#" class="active" data-target="dashboard-section"><i class="fas fa-home"></i> Dashboard</a>
+                </li>
+                <li><a href="#" data-target="messages-section"><i class="fas fa-envelope"></i> Messages</a></li>
+                <li><a href="#" data-target="projects-section"><i class="fas fa-project-diagram"></i> Projects</a></li>
+                <li><a href="#" data-target="products-section"><i class="fas fa-box"></i> Products</a></li>
+                <li><a href="#" data-target="slider-section"><i class="fas fa-images"></i> Slider</a></li>
+                <li><a href="#" id="logoutBtnSide"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+            </ul>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Dashboard Overview -->
+            <section id="dashboard-section" class="content-section active">
+                <h2>Dashboard Overview</h2>
+                <div class="dashboard-stats">
+                    <div class="stat-card">
+                        <h3>Total Messages</h3>
+                        <div class="stat-number" id="stats-messages">0</div>
+                    </div>
+                    <div class="stat-card">
+                        <h3>Total Projects</h3>
+                        <div class="stat-number" id="stats-projects">0</div>
+                    </div>
+                    <div class="stat-card">
+                        <h3>Total Products</h3>
+                        <div class="stat-number" id="stats-products">0</div>
+                    </div>
+                </div>
+                <div class="add-product-card" style="text-align: center; padding: 3rem;">
+                    <h3>Welcome to Vasan Plywoods Admin</h3>
+                    <p>Select a section from the sidebar to manage your website.</p>
+                </div>
+            </section>
+
+            <!-- Messages Section -->
+            <section id="messages-section" class="content-section">
+                <h2>Contact Messages</h2>
+                <div class="messages-container" id="messagesList">
+                    <p style="padding: 1rem;">Loading messages...</p>
+                </div>
+            </section>
+
+            <!-- Projects Section -->
+            <section id="projects-section" class="content-section">
+                <h2>Project Management (Carousel)</h2>
+                <div class="admin-grid">
+                    <!-- Add Project Form -->
+                    <div class="add-product-card">
+                        <h3>Add New Project</h3>
+                        <form id="addProjectForm" enctype="multipart/form-data">
+                            <div class="form-group">
+                                <label for="p-title">Project Title</label>
+                                <input type="text" id="p-title" name="title" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="p-description">Description (Short text for slide)</label>
+                                <textarea id="p-description" name="description" rows="2" required></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for="p-category">Category</label>
+                                <select id="p-category" name="category" required>
+                                    <option value="plywood">Plywood Work</option>
+                                    <option value="glass">Glass Work</option>
+                                    <option value="custom">Custom Design</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="p-image">Project Image</label>
+                                <input type="file" id="p-image" name="image" accept="image/*" required>
+                            </div>
+                            <button type="submit" class="btn-login">Add Project</button>
+                        </form>
+                    </div>
+
+                    <!-- Existing Projects List -->
+                    <div class="products-list-card">
+                        <h3>Existing Projects</h3>
+                        <div id="projectsList">
+                            <p>Loading projects...</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Products Section -->
+            <section id="products-section" class="content-section">
+                <h2>Product Management</h2>
+                <div class="admin-grid">
+                    <!-- Add Product Form -->
+                    <div class="add-product-card">
+                        <h3>Add New Product</h3>
+                        <form id="addProductForm" enctype="multipart/form-data">
+                            <div class="form-group">
+                                <label for="name">Product Name</label>
+                                <input type="text" id="name" name="name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="description">Description</label>
+                                <textarea id="description" name="description" rows="3" required></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for="category">Category</label>
+                                <select id="category" name="category" required>
+                                    <option value="plywood">Plywood</option>
+                                    <option value="glass">Glass</option>
+                                    <option value="hardware">Hardware</option>
+                                    <option value="custom">Custom Work</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="price">Price (Optional)</label>
+                                <input type="text" id="price" name="price" placeholder="e.g. $100 or Contact us">
+                            </div>
+                            <div class="form-group">
+                                <label for="image">Product Image</label>
+                                <input type="file" id="image" name="image" accept="image/*" required>
+                            </div>
+                            <div class="form-group">
+                                <label>
+                                    <input type="checkbox" id="featured" name="featured"> Featured Product?
+                                </label>
+                            </div>
+                            <button type="submit" class="btn-login">Add Product</button>
+                        </form>
+                    </div>
+
+                    <!-- Existing Products List -->
+                    <div class="products-list-card">
+                        <h3>Existing Products</h3>
+                        <div id="productsList">
+                            <p>Loading products...</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Slider Section -->
+            <section id="slider-section" class="content-section">
+                <h2>Continuous Slider Management</h2>
+                <div class="admin-grid">
+                    <!-- Add Slider Image Form -->
+                    <div class="add-product-card">
+                        <h3>Add New Slider Image</h3>
+                        <form id="addSliderForm" enctype="multipart/form-data">
+                            <div class="form-group">
+                                <label for="s-image">Slider Image</label>
+                                <input type="file" id="s-image" name="image" accept="image/*" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="s-alt">Alt Text (Optional)</label>
+                                <input type="text" id="s-alt" name="altText" placeholder="Image description">
+                            </div>
+                            <button type="submit" class="btn-login">Add Image</button>
+                        </form>
+                    </div>
+
+                    <!-- Existing Slider Images List -->
+                    <div class="products-list-card">
+                        <h3>Existing Slider Images</h3>
+                        <div id="sliderList">
+                            <p>Loading images...</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="js/admin.js"></script>
+    <script>
+        // Check auth on load
+        if (!localStorage.getItem('adminToken')) {
+            window.location.href = 'admin-login.html';
+        }
+    </script>
+</body>
+
+</html>
