@@ -2,7 +2,7 @@
 // Configuration
 // ========================================
 // Use the current host to support both localhost and network access
-const API_BASE_URL = `${window.location.protocol}//${window.location.host}/api`;
+const API_BASE_URL = `${window.location.origin}/api`;
 
 // ========================================
 // Toast Notification Logic (Main Site)

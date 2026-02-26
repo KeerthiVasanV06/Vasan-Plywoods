@@ -1,4 +1,4 @@
-const API_URL = `${window.location.protocol}//${window.location.host}/api`;
+const API_URL = `${window.location.origin}/api`;
 
 // ========================================
 // Toast Notification Logic
