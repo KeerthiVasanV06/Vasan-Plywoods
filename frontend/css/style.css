@@ -868,27 +868,45 @@ h4 {
 
 @media (max-width: 480px) {
     h1 {
-        font-size: 2rem;
-    }
-
-    h2 {
         font-size: 1.75rem;
     }
 
+    h2 {
+        font-size: 1.5rem;
+    }
+
     h3 {
-        font-size: 1.25rem;
+        font-size: 1.1rem;
     }
 
     .hero-title {
-        font-size: 2rem;
+        font-size: 1.75rem;
+    }
+    
+    .hero-subtitle {
+        font-size: 0.95rem;
     }
 
     .hero-buttons {
         flex-direction: column;
+        gap: 12px;
     }
 
     .carousel {
-        height: 300px;
+        height: 280px;
+    }
+    
+    .carousel-btn {
+        width: 38px;
+        height: 38px;
+    }
+    
+    .nav-brand h1 {
+        font-size: 1.2rem;
+    }
+    
+    .nav-brand .tagline {
+        font-size: 0.65rem;
     }
 }
 
@@ -1047,17 +1065,170 @@ h4 {
     }
 }
 
+@media (max-width: 480px) {
+    .slider-item {
+        width: 150px;
+        height: 110px;
+    }
+    
+    .toast {
+        min-width: auto;
+        width: 100%;
+        max-width: calc(100vw - 40px);
+        padding: 12px 15px;
+        font-size: 0.9rem;
+    }
+    
+    .toast i {
+        font-size: 1rem;
+    }
+    
+    .confirm-box {
+        width: 95%;
+        padding: 1.5rem;
+    }
+    
+    .confirm-title {
+        font-size: 1.3rem;
+    }
+    
+    .confirm-buttons {
+        gap: 0.75rem;
+    }
+    
+    .btn-confirm-yes,
+    .btn-confirm-no {
+        padding: 10px 20px;
+        font-size: 0.9rem;
+    }
+    
+    .container {
+        padding: 0 1rem;
+    }
+}
+
+@media (max-width: 360px) {
+    .slider-item {
+        width: 120px;
+        height: 90px;
+    }
+    
+    .container {
+        padding: 0 0.75rem;
+    }
+    
+    .carousel-btn {
+        width: 36px;
+        height: 36px;
+        left: var(--spacing-sm);
+        right: var(--spacing-sm);
+    }
+    
+    .carousel-prev {
+        left: 8px;
+    }
+    
+    .carousel-next {
+        right: 8px;
+    }
+    
+    .hero {
+        padding: 3rem 1rem;
+        min-height: 400px;
+    }
+    
+    .hero-title {
+        font-size: 1.5rem;
+    }
+    
+    h1 {
+        font-size: 1.3rem;
+    }
+    
+    h2 {
+        font-size: 1.2rem;
+    }
+    
+    h3 {
+        font-size: 0.95rem;
+    }
+    
+    .section-title {
+        margin-bottom: 8px;
+        font-size: 1.3rem;
+    }
+    
+    .section-subtitle {
+        margin-bottom: 2rem;
+        font-size: 0.9rem;
+    }
+}
+
 /* ========================================
-   Toast Notification Styles
+   Admin Button
    ======================================== */
+.admin-btn-wrapper {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
+}
+
+.admin-btn-wrapper a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    background: #2c3e50;
+    color: #fff;
+    border-radius: 50%;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    transition: transform 0.3s, box-shadow 0.3s;
+    font-size: 20px;
+}
+
+.admin-btn-wrapper a:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 15px rgba(0,0,0,0.4);
+}
+
+@media (max-width: 480px) {
+    .admin-btn-wrapper {
+        bottom: 15px;
+        right: 15px;
+    }
+    
+    .admin-btn-wrapper a {
+        width: 45px;
+        height: 45px;
+        font-size: 18px;
+    }
+}
+
+@media (max-width: 360px) {
+    .admin-btn-wrapper {
+        bottom: 10px;
+        right: 10px;
+    }
+    
+    .admin-btn-wrapper a {
+        width: 40px;
+        height: 40px;
+        font-size: 16px;
+    }
+}
 #toast-container {
     position: fixed;
     top: 100px;
     right: 20px;
+    left: 20px;
     z-index: 2000;
     display: flex;
     flex-direction: column;
     gap: 10px;
+    max-width: calc(100% - 40px);
 }
 
 .toast {
@@ -1072,7 +1243,8 @@ h4 {
     align-items: center;
     justify-content: space-between;
     gap: 12px;
-    min-width: 300px;
+    min-width: 280px;
+    max-width: 90vw;
     animation: slideIn 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
     border-left: 5px solid var(--accent-gold);
     border: 1px solid rgba(201, 169, 97, 0.3);
